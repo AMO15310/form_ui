@@ -16,6 +16,7 @@ class Inputs extends Component {
     this.setState({
       name: event.target.value,
     });
+    console.log(this.state.name);
   };
   handleEmailChange = (event) => {
     this.setState({
