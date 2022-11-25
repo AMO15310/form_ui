@@ -1,0 +1,36 @@
+body{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    box-sizing: 0;
+}
+.loginform{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 4rem;
+    border: 1px solid black;
+    padding: 5rem 4rem;
+    padding-bottom: 9rem;
+    border-radius: 4px;
+}
+.title{
+    font-size: 30px;
+}
+img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 12rem;
+}
+
+.eye{
+    cursor: pointer;
+    margin-left: 0.5rem;
+
+}
+.or{
+    display: flex;
+    justify-content: center;
+}

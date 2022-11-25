@@ -1,3 +1,5 @@
+import "./signup.css";
+
 import React, { Component } from "react";
 
 class Inputs extends Component {
@@ -55,7 +57,20 @@ class Inputs extends Component {
       confirm: event.target.value,
     });
   };
-  handleForm = () => {
+  handleForm = (event) => {
+    // console.log("clicked");
+    event.preventDefault();
+    if (
+      !this.state.name ||
+      !this.state.email ||
+      !this.state.password ||
+      !this.state.confirm
+    ) {
+      return false;
+    }
+    if (this.state.password !== this.state.confirm) {
+      return false;
+    }
     const details = {
       userName: this.state.name,
       userEmail: this.state.email,
@@ -64,13 +79,13 @@ class Inputs extends Component {
     };
     console.log(details);
   };
-  errorMess1 = `Name should not include a special character`;
+  errorMess1 = `Name should be (3-16) and not include a special character`;
   errorMess2 = `Email should be valid`;
   errorMess3 = `Password should not be less than 6 and include atleast 1 number`;
   errorMess4 = `Passwords must be same`;
   render() {
     return (
-      <form>
+      <form onSubmit={(event) => this.handleForm(event)}>
         <div className="container">
           <p className="title">Sign up</p>
           <label>name</label>
@@ -130,8 +145,8 @@ class Inputs extends Component {
           <span className="confspan">{this.errorMess4}</span>
           <button
             className="btn btn-primary"
-            onClick={() => this.handleForm()}
             type="submit"
+            onClick={(event) => this.handleForm(event)}
           >
             Submit
           </button>
@@ -140,5 +155,4 @@ class Inputs extends Component {
     );
   }
 }
-
 export default Inputs;
